@@ -1,0 +1,10 @@
+{% extends 'pages/plantillauno.html' %}
+{% block titulo %}Resultado de búsqueda{% endblock %}
+{% block contenido %}
+		<h2 class="busqResltH2">{% if not encontradosCumulos %}No hay c{% else %}C{% endif %}úmulo{% if encontradosCumulos|length > 1 or not encontradosCumulos %}s{% endif %} con etiqueta{% if buscadosEtiquetas|length > 1 %}s{% endif %}
+		<span>{% for etiqueta in buscadosEtiquetas %}<em>{{ etiqueta }}</em>{% if not forloop.last %}<span class="invisibleSpan"> | </span>{% endif %}{% endfor %}</span></h2>
+		{% if encontradosCumulos %}<hr/>
+		<ul class="busqResltUl">{% for cumulo in encontradosCumulos %}
+			<li><a href="{% url 'cumulo' entry_id=cumulo.id %}">{{ cumulo.title }}</a></li>{% endfor %}
+		</ul>{% endif %}
+		<hr class="sepFino"/>{% endblock %}

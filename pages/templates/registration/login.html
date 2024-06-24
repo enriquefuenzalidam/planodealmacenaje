@@ -1,0 +1,13 @@
+{% extends 'pages/plantillauno.html' %}
+{% block titulo %}Identificación{% endblock %}
+{% block contenido %}
+		<h2>Inicio de sesión</h2>
+		{% if form.errors %}<h3 class="incorrUsuario">Nombre de usuario y/o contraseña incorrectos</h3>{% endif %}
+		<form id="identificacionForm" action="" method="post">
+			{% csrf_token %}
+			<p class="identificacionFormLabel"><label for="id_username" >Ingrese su nombre de usuario</label></p>
+			<p><input type="text" id="id_username" name="username" /></p>
+			<p class="identificacionFormLabel"><label for="id_password" >Ingrese su contraseña</label></p>
+			<p><input type="password" id="id_password" name="password" /></p>
+			<p class="identificacionFormIngresar"><button type="submit">Ingresar</button></p>
+		</form>{% endblock %}

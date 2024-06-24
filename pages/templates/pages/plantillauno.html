@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html version="-//W3C//DTD XHTML 1.1//EN" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml http://www.w3.org/MarkUp/SCHEMA/xhtml11.xsd" xmlns:svg="http://www.w3.org/2000/svg">
+	<head>
+		<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+		<title>{% block titulo %}{% endblock %} | Plano De Almacenaje</title>
+		<link type="text/css" rel="stylesheet" href="{% load static %}{% static 'cssuno.css' %}" />
+	</head>
+	<body>
+		<h1>Plano De Almacenaje</h1>{% block contenido %}
+		{% endblock %}
+		{% if user.is_authenticated %}<form id="logoutButtons" action="{% url 'logout' %}" method="post">
+			<p><input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}" /></p>
+			<p>{% if not current_template == 'pages/inicio.html' %}<a href="/">Volver al Inicio</a>{% else %}<a href="/nuevocumulo/">Crear cúmulo</a> · <button type="submit">Cerrar sesión</button>{% endif %}</p>
+		</form>{% endif %}
+	</body>
+</html>

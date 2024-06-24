@@ -1,0 +1,80 @@
+
+			/** 300 light **/
+			@font-face {
+				font-family: "Pangea";
+				src: url("pangea_text_trial/PangeaTextTrial-LightWeb.woff2") format("woff2");
+				font-stretch: normal;
+				font-style: normal;
+				font-weight: 300;
+			}
+			@font-face {
+				font-family: "Pangea";
+				src: url("pangea_text_trial/PangeaTextTrial-LightItalicWeb.woff2") format("woff2");
+				font-stretch: normal;
+				font-style: italic;
+				font-weight: 300;
+			}
+
+			/** 400 light **/
+			@font-face {
+				font-family: "Pangea";
+				src: url("pangea_text_trial/PangeaTextTrial-RegularWeb.woff2") format("woff2");
+				font-stretch: normal;
+				font-style: normal;
+				font-weight: 400;
+			}
+			@font-face {
+				font-family: "Pangea";
+				src: url("pangea_text_trial/PangeaTextTrial-ItalicWeb.woff2") format("woff2");
+				font-stretch: normal;
+				font-style: italic;
+				font-weight: 400;
+			}
+
+			/** 500 light **/
+			@font-face {
+				font-family: "Pangea";
+				src: url("pangea_text_trial/PangeaTextTrial-MediumWeb.woff2") format("woff2");
+				font-stretch: normal;
+				font-style: normal;
+				font-weight: 500;
+			}
+			@font-face {
+				font-family: "Pangea";
+				src: url("pangea_text_trial/PangeaTextTrial-MediumItalicWeb.woff2") format("woff2");
+				font-stretch: normal;
+				font-style: italic;
+				font-weight: 500;
+			}
+
+			/** 600 light **/
+			@font-face {
+				font-family: "Pangea";
+				src: url("pangea_text_trial/PangeaTextTrial-SemiBoldWeb.woff2") format("woff2");
+				font-stretch: normal;
+				font-style: normal;
+				font-weight: 600;
+			}
+			@font-face {
+				font-family: "Pangea";
+				src: url("pangea_text_trial/PangeaTextTrial-SemiBoldItalicWeb.woff2") format("woff2");
+				font-stretch: normal;
+				font-style: italic;
+				font-weight: 600;
+			}
+
+			/** 700 light **/
+			@font-face {
+				font-family: "Pangea";
+				src: url("pangea_text_trial/PangeaTextTrial-BoldWeb.woff2") format("woff2");
+				font-stretch: normal;
+				font-style: normal;
+				font-weight: 700;
+			}
+			@font-face {
+				font-family: "Pangea";
+				src: url("pangea_text_trial/PangeaTextTrial-BoldItalicWeb.woff2") format("woff2");
+				font-stretch: normal;
+				font-style: italic;
+				font-weight: 700;
+			}

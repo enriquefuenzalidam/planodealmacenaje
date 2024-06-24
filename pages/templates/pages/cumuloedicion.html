@@ -1,0 +1,17 @@
+{% extends 'pages/plantillauno.html' %}
+{% block titulo %}Editando cúmulo {{ entrada_titulo }}{% endblock %}
+{% block contenido %}
+		<h2 class="cumulo">{{ entrada_titulo }}</h2>
+		<h3>Edición de cúmulo</h3>
+		<form id="cumuloEdicionForm" action="" method="post">
+			<p><input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}" /></p>
+			<p class="cumuloEdicionFormLabel"><label {% if faltaCampoUno %}class="faltaCampo"{% endif %} for="cumuloEdicionTitulo" >Título del cúmulo (campo obligatorio)</label></p>
+			<p class="cumuloEdicionP"><input {% if faltaCampoUno %}class="faltaCampo"{% endif %} type="text" id="cumuloEdicionTitulo" name="cumuloEdicionTitulo" {% if faltaCampoUno or faltaCampoDos %}value="{{ data.cumuloEdicionTitulo|default_if_none:'' }}"{% else %}value="{{ entrada_titulo }}"{% endif %} /></p>
+			<p class="cumuloEdicionFormLabel"><label {% if faltaCampoDos %}class="faltaCampo"{% endif %} for="cumuloEdicionTags" >Etiquetas del cúmulo separadas por comas (campo obligatorio)</label></p>
+			<p class="cumuloEdicionP"><textarea {% if faltaCampoDos %}class="faltaCampo"{% endif %} id="cumuloEdicionTags" name="cumuloEdicionTags" rows="5" cols="21">{% if faltaCampoUno or faltaCampoDos %}{{ data.cumuloEdicionTags|default_if_none:'' }}{% else %}{{ entrada_etiquetas }}{% endif %}</textarea></p>
+			<hr class="sepMargSup"/>
+			<p class="editarDescartar">
+				<span class="gridCajaIzq"><button type="submit"><strong>Editar</strong></button></span><span class="invisibleSpan"> | </span><span class="gridCajaDer"><a href="{% url 'cumulo' entry_id=entry_id %}" class="descartarBoton">Descartar</a></span>
+			</p>
+		</form>
+		<hr class="sepFino"/>{% endblock %}

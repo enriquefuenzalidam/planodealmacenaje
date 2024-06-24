@@ -1,0 +1,25 @@
+{% extends 'pages/plantillauno.html' %}
+{% block titulo %}Nueva especificación de {% if element_kind == 'Description' %}texto{% elif element_kind == 'Number' %}cantidad{% elif element_kind == 'Date' %}fecha{% elif element_kind == 'Image' %}imagen{% else %}documento{% endif %} para el cúmulo título {{ entry.title }}{% endblock %}
+{% block contenido %}
+		<h2>{{ entry.title }}</h2>
+		<h3>Nueva especificación de <strong>{% if element_kind == 'Description' %}texto{% elif element_kind == 'Number' %}cantidad{% elif element_kind == 'Date' %}fecha{% elif element_kind == 'Image' %}imagen{% else %}documento{% endif %}</strong></h3>
+		<form id="nuevaEspecificacionForm" action="" method="post" enctype="multipart/form-data">
+			<p><input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}" /></p>
+			<p class="nuevaEspecificacionFormLabel"><label {% if faltaCampoUno %}class="faltaCampo"{% endif %} for="nuevaEspecificacionTitulo" >Ingrese un título para {% if element_kind == 'Description' %}el texto (opcional){% elif element_kind == 'Number' %}la cantidad (obligatorio){% elif element_kind == 'Date' %}la fecha (obligatorio){% elif element_kind == 'Image' %}la imagen (opcional){% else %}el documento (opcional){% endif %}.</label></p>
+			<p class="nuevaEspecificacionP"><input {% if faltaCampoUno %}class="faltaCampo"{% endif %} type="text" id="nuevaEspecificacionTitulo" name="nuevaEspecificacionTitulo" value="{{ data.nuevaEspecificacionTitulo|default_if_none:'' }}" /></p>
+			{% if element_kind == 'Description' %}<p class="nuevaEspecificacionFormLabel"><label {% if faltaCampoDos %}class="faltaCampo"{% endif %} for="nuevaEspecificacionContent" >Ingrese el texto (obligatorio)</label></p>
+			<p class="nuevaEspecificacionP"><textarea {% if faltaCampoDos %}class="faltaCampo"{% endif %} id="nuevaEspecificacionContent" name="nuevaEspecificacionContent" rows="5" cols="50" >{{ data.nuevaEspecificacionContent|default_if_none:'' }}</textarea></p>
+			{% elif element_kind == 'Number' %}<p class="nuevaEspecificacionFormLabel"><label {% if faltaCampoDos %}class="faltaCampo"{% endif %} for="nuevaEspecificacionNumber" >Ingrese la cantidad (obligatorio){% if noNumeroCampoDos %} (ingrese solo números){% endif %}</label></p>
+			<p class="nuevaEspecificacionP"><input {% if faltaCampoDos %}class="faltaCampo"{% endif %} type="text" id="nuevaEspecificacionNumber" name="nuevaEspecificacionNumber" value="{{ data.nuevaEspecificacionNumber|default_if_none:'' }}" /></p>
+			{% elif element_kind == 'Date' %}<p class="nuevaEspecificacionFormLabel"><label {% if faltaCampoDos %}class="faltaCampo"{% endif %} for="nuevaEspecificacionDate" >Ingrese la fecha (obligatorio)</label></p>
+			<p class="nuevaEspecificacionP"><input {% if faltaCampoDos %}class="faltaCampo"{% endif %} type="date" id="nuevaEspecificacionDate" name="nuevaEspecificacionDate" value="{{ data.nuevaEspecificacionDate|default_if_none:'' }}" /></p>
+			{% elif element_kind == 'Image' %}<p class="nuevaEspecificacionFormLabel"><label {% if faltaCampoDos or fleSuperLimit %}class="faltaCampo"{% endif %} for="nuevaEspecificacionImage" >{% if fleSuperLimit %}La imagen archivo supera los 100 MB{% else %}Cargue el archivo de la imagen (obligatorio){% endif %}</label></p>
+			<p class="nuevaEspecificacionP"><input {% if faltaCampoDos or fleSuperLimit %}class="faltaCampo"{% endif %} type="file" id="nuevaEspecificacionImage" name="nuevaEspecificacionImage" accept="image/*" value="{{ data.nuevaEspecificacionImage|default_if_none:'' }}" /></p>
+			{% else %}<p class="nuevaEspecificacionFormLabel"><label {% if faltaCampoDos or fleSuperLimit %}class="faltaCampo"{% endif %} for="nuevaEspecificacionFile" >{% if fleSuperLimit %}La imagen archivo supera los 100 MB{% else %}Cargue el archivo del documento (obligatorio){% endif %}</label></p>
+			<p class="nuevaEspecificacionP"><input {% if faltaCampoDos or fleSuperLimit %}class="faltaCampo"{% endif %} type="file" id="nuevaEspecificacionFile" name="nuevaEspecificacionFile" accept=".doc, .docx, .pdf" value="{{ data.nuevaEspecificacionFile|default_if_none:'' }}" /></p>
+			{% endif %}<hr class="sepMargSup"/>
+			<p class="agregarDescartar">
+				<span class="flexCajaIzq"><button type="submit"><strong>Agregar</strong></button></span><span class="invisibleSpan"> | </span><span class="flexCajaDer"><a href="{% url 'cumulo' entry_id=entry.pk %}" class="descartarBoton">Descartar</a></span>
+			</p>
+		 </form>
+		<hr class="sepFino"/>{% endblock %}

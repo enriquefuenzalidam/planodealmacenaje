@@ -1,0 +1,48 @@
+{% extends 'pages/plantillauno.html' %}
+{% block titulo %}{{ entry.title }}{% endblock %}
+{% block contenido %}
+		<h2 class="cumulo">{{ entry.title }}</h2>
+		<p class="especificacion etiquetas">
+			<span class="invisibleSpan">Etiquetas: </span>{% for tag in entry_tags %}<a href="{% url 'busquedaresultados' tag=tag %}">{{ tag }}</a>{% if not forloop.last %}<span class="invisibleSpan"> | </span>{% endif %}{% endfor %}
+		</p>
+		<p class="especificacion especificacionEdicion"><span class="flexCajaIzq"><a href="{% url 'cumuloedicion' entry_id=entry.pk %}">Editar Cúmulo</a></span><span class="invisibleSpan"> | </span><span class="flexCajaDer"><a href="{% url 'cumuloeliminacion' entry_id=entry.pk %}">Borrar Cúmulo</a></span></p>
+		<hr/>
+		<p class="pMenu">
+			<strong>Agregar especificación de</strong>
+			<span class="pMenuItems">
+				<a href="{% url 'especificacion' entry_id=entry.pk element_kind='Description' %}">Texto</a><span class="invisibleSpan"> | </span><a href="{% url 'especificacion' entry_id=entry.pk element_kind='Number' %}">Cantidad</a><span class="invisibleSpan"> | </span><a href="{% url 'especificacion' entry_id=entry.pk element_kind='File' %}">Documento</a><span class="invisibleSpan"> | </span><a href="{% url 'especificacion' entry_id=entry.pk element_kind='Date' %}">Fecha</a><span class="invisibleSpan"> | </span><a href="{% url 'especificacion' entry_id=entry.pk element_kind='Image' %}">Imagen</a>
+			</span>
+		</p>
+		{% if entry.descriptions.all %}{% for description in entry.descriptions.all %}<hr/>
+		{% if description.title %}<h4 class="especificacionTitulo">{{ description.title }}</h4>
+		{% endif %}<p class="especificacion">{{ description.content }}</p>
+		<p class="especificacion especificacionEdicion"><span class="flexCajaIzq"><a href="{% url 'especificacionedicion' entry_id=entry.id element_kind='texto' element_id=description.pk %}">Editar Especificación</a></span><span class="invisibleSpan"> | </span><span class="flexCajaDer"><a href="{% url 'especificacioneliminacion' entry_id=entry.id element_kind='texto' element_id=description.pk %}">Borrar Especificación</a></span></p>
+		{% endfor %}{% endif %}{% if entry.numbers.all %}{% for number in entry.numbers.all %}<hr/>
+		<h4 class="especificacionTitulo">{{ number.number_title }}</h4>
+		<p class="especificacion especificacionCantidad">{{ number.number }}</p>
+		<p class="especificacion especificacionEdicion"><span class="flexCajaIzq"><a href="{% url 'especificacionedicion' entry_id=entry.id element_kind='cantidad' element_id=number.pk %}">Editar Especificación</a></span><span class="invisibleSpan"> | </span><span class="flexCajaDer"><a href="{% url 'especificacioneliminacion' entry_id=entry.id element_kind='cantidad' element_id=number.pk %}">Borrar Especificación</a></span></p>
+		{% endfor %}{% endif %}{% if entry.dates.all %}{% for date in entry.dates.all %}<hr/>
+		<h4 class="especificacionTitulo">{{ date.date_title }}</h4>
+		<p class="especificacion especificacionFecha">{{ date.date }}</p>
+		<p class="especificacion especificacionEdicion"><span class="flexCajaIzq"><a href="{% url 'especificacionedicion' entry_id=entry.id element_kind='fecha' element_id=date.pk %}">Editar Especificación</a></span><span class="invisibleSpan"> | </span><span class="flexCajaDer"><a href="{% url 'especificacioneliminacion' entry_id=entry.id element_kind='fecha' element_id=date.pk %}">Borrar Especificación</a></span></p>
+		{% endfor %}{% endif %}{% if entry.images.all %}{% for image in entry.images.all %}<hr/>
+		{% if image.image_title %}<h4 class="especificacionTitulo">{{ image.image_title }}</h4>
+		{% endif %}<p class="especificacion especificacionImg"><img src="{{ image.image.url }}" alt="{{ image.image.name }}" /></p>
+		<p class="especificacion especificacionEdicion"><span class="flexCajaIzq"><a href="{% url 'especificacionedicion' entry_id=entry.id element_kind='imagen' element_id=image.pk %}">Editar Especificación</a></span><span class="invisibleSpan"> | </span><span class="flexCajaDer"><a href="{% url 'especificacioneliminacion' entry_id=entry.id element_kind='imagen' element_id=image.pk %}">Borrar Especificación</a></span></p>
+		{% endfor %}{% endif %}{% if entry.files.all %}{% for file in entry.files.all %}<hr/>
+		{% if file.file_title %}<h4 class="especificacionTitulo">{{ file.file_title }}</h4>
+		{% endif %}<p class="especificacion especificacionDoc"><a href="{{ file.file.url }}">{{ file.file.name|cut:'files/' }}</a></p>
+		<p class="especificacion especificacionEdicion"><span class="flexCajaIzq"><a href="{% url 'especificacionedicion' entry_id=entry.id element_kind='documento' element_id=file.pk %}">Editar Especificación</a></span><span class="invisibleSpan"> | </span><span class="flexCajaDer"><a href="{% url 'especificacioneliminacion' entry_id=entry.id element_kind='documento' element_id=file.pk %}">Borrar Especificación</a></span></p>
+		{% endfor %}{% endif %}<hr class="sepFino"/>{% endblock %}
+
+{% comment %}
+		<h3>Cúmulo creado el sábado abril 82 de 1308</h3>
+
+		<hr/>
+		<p class="verPor">
+			<strong>Mostrando todas las especificaciones</strong><span class="invisibleSpan"> | </span>
+			<span class="verPorMenu">
+				<a href="">Mostrar solo textos</a><span class="invisibleSpan"> | </span><a href="">Mostrar solo cantidades</a><span class="invisibleSpan"> | </span><a href="">Mostrar solo documentos</a><span class="invisibleSpan"> | </span><a href="">Mostrar solo fechas</a><span class="invisibleSpan"> | </span><a href="">Mostrar solo imágenes</a>
+			</span>
+		</p>
+{% endcomment %}

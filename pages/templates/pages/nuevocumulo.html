@@ -1,0 +1,16 @@
+{% extends 'pages/plantillauno.html' %}
+{% block titulo %}Nuevo Cúmulo{% endblock %}
+{% block contenido %}
+		<h2>Nuevo cúmulo</h2>
+		<form id="nuevoCumuloForm" action="" method="post">
+			<p><input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}" /></p>
+			<p class="nuevoCumuloFormLabel"><label {% if faltaCampoUno %}class="faltaCampo"{% endif %} for="nuevoCumuloTitulo" >Ingrese un título para el nuevo cúmulo (campo obligatorio).</label></p>
+			<p class="nuevoCumuloP"><input {% if faltaCampoUno %}class="faltaCampo"{% endif %} type="text" id="nuevoCumuloTitulo" name="nuevoCumuloTitulo" value="{{ data.nuevoCumuloTitulo|default_if_none:'' }}" /></p>
+			<p class="nuevoCumuloFormLabel"><label {% if faltaCampoDos %}class="faltaCampo"{% endif %} for="nuevoCumuloTags" >Ingrese etiqueta(s) para el nuevo cúmulo,<br/>separadas por una coma (campo obligatorio).</label></p>
+			<p class="nuevoCumuloP"><textarea {% if faltaCampoDos %}class="faltaCampo"{% endif %} id="nuevoCumuloTags" name="nuevoCumuloTags" rows="5" cols="21">{{ data.nuevoCumuloTags|default_if_none:'' }}</textarea></p>
+			<hr class="sepMargSup"/>
+			<p class="agregarDescartar">
+				<span class="gridCajaIzq"><button type="submit"><strong>Agregar</strong></button></span><span class="invisibleSpan"> | </span><span class="gridCajaDer"><a href="{% url 'inicio' %}" class="descartarBoton">Descartar</a></span>
+			</p>
+		</form>
+		<hr class="sepFino"/>{% endblock %}

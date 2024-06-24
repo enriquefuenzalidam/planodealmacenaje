@@ -1,0 +1,125 @@
+
+			@import url("pangea.css");
+
+			body { max-width: 610px; min-width: 377px; margin: 6.85em auto 6.85em auto; padding: 0 13px; background-color: #AFB7BF; background-image: url('fondo.svg'); background-size: cover; background-repeat: no-repeat; background-position: top; color: #576476; font-size: 21px; font-family: Pangea; text-align: center; letter-spacing: -0.015em; }
+
+			p, ul, li, form, a, h1, h2, h3, h4 { text-align: center; text-indent: 0; padding: 0; margin: 0; list-style-type: none; -webkit-hyphens: auto; hyphens: auto; text-transform: none; }
+
+			input, button, textarea { border-width: 3px; border-style: solid; font-family: Pangea; font-weight: 400; font-style: normal; color: #475160; text-align: center; text-decoration: none; }
+			input, textarea { background-color: rgb(20,30,60,0.13); border-color: rgb(20,30,60,0.05); padding: 8px; font-size: 1.24em; display: block; width: calc(100% - 42px); margin: 0 auto; border-radius: 13px; }
+			button { background-color: rgb(20,30,60,0.13); border-color: transparent; padding: 8px 42px; font-size: 1em; cursor: pointer; min-width: 89px; border-radius: 5px; display: inline-block; margin: 0 auto; }
+			button:hover { color: #38404C; background-color: rgb(20,30,60,0.26); }
+			label { display: block; line-height: 1.15em; padding: 0; color: #576476; font-size: 0.91em; font-family: Pangea; text-align: center; margin: 0 auto; }
+
+			strong { font-weight: 600; }
+			span.invisibleSpan { display: none; }
+
+			hr { display: block; width: 3px; height: 55px; padding: 0; margin: 0 auto 55px auto; background-color: rgb(20,30,60,0.21); opacity: 0.76; border: 0; }
+			hr.sepFino { width: 1px; height: 34px; background-color: rgb(20,30,60,0.55); }
+			hr.sepMargSup { margin-top: 34px; }
+			hr.sepMargSupB { margin-top: 55px; height: 34px; margin: 34px auto 21px auto; }
+
+			h1 { display: block; margin: 0 3.4% 89px 3.4%; min-width: 322px; min-height: 43.56px; font-size: 0; color: #576476; background-image: url('planodealmacenajeuno.svg'); background-size: contain; background-repeat: no-repeat; background-position: center; }
+
+			h2 { display: block; color: #576476; margin: 0 auto; padding: 0; font-style: normal; font-weight: 500; font-size: 1.86em; letter-spacing: -0.03em; }
+
+			h2.busqResltH2 { margin-bottom: 55px; }
+			h2.busqResltH2 > span { display: block; margin: 0.38em auto}
+			h2.busqResltH2 > span.invisibleSpan { display: none; }
+			h2.busqResltH2 > span > em { background-color: rgb(20,30,60,0.42); border-color: transparent; border-width: 3px; border-radius: 8px; border-style: solid; font-style: normal; font-weight: 600; display: inline-block; padding: 8px 21px; margin: 0 8px; color: #A7AEB9; }
+
+			h3 { border-top: 2px solid rgb(20,30,60,0.21); display: block; color: #576476; margin: 0 auto; padding: 5px 0 0 0; font-size: 1.15em; font-style: normal; font-weight: 300; }
+			h3.incorrUsuario { color: red; }
+			h3 > strong { font-weight: 600; }
+
+			form#logoutButtons { display: block;  margin: 89px auto; font-size: 0.77em; }
+			form#logoutButtons > p > button, form#logoutButtons > p > a { display: inline-block; min-width: 0; margin: 0 0.62em; padding: 3px 0; font-weight: 500; text-decoration: none; background: none; text-transform: uppercase; color: rgb(20,30,60,0.34); border: none; border-radius: none; }
+			form#logoutButtons > p > button:hover, form#logoutButtons > p > a:hover { background-color: none; color: #38404C; }
+
+			h4.especificacionTitulo { margin: 0 auto 21px auto; padding: 0; line-height: 1.38em; font-size: 1.38em; font-style: normal; font-weight: 600; }
+
+			form#porEtiquetaBusquedaForm > p { margin: 0 auto 0 auto; padding: 0; }
+			form#porEtiquetaBusquedaForm > p.porEtiquetaBusquedaFormLabel { margin: 34px auto 8px auto; }
+			form#porEtiquetaBusquedaForm > p.porEtiquetaBusquedaFormBuscar { margin: 55px auto 0 auto; }
+
+			form#identificacionForm > p { margin: 0 auto; padding: 0; }
+			form#identificacionForm > p.identificacionFormLabel { margin: 34px auto 8px auto; }
+			form#identificacionForm > p.identificacionFormIngresar { margin: 55px auto 0 auto; }
+
+			form#nuevoCumuloForm > p.nuevoCumuloP { margin: 0 auto; padding: 0; }
+			form#nuevoCumuloForm > p.nuevoCumuloFormLabel { margin: 34px auto 8px auto; }
+			form#nuevoCumuloForm > p.agregarDescartar { display: flex; margin: 0 auto 55px auto; line-height: 1.24em; font-size: 1em; font-style: normal; }
+			form#nuevoCumuloForm > p.agregarDescartar > span.gridCajaIzq { width: 50%; text-align: right; padding: 0 5px 0 0; }
+			form#nuevoCumuloForm > p.agregarDescartar > span.gridCajaDer { width: 50%; text-align: left; padding: 0 0 0 5px; }
+			form#nuevoCumuloForm > p.agregarDescartar > span > a.descartarBoton { background-color: rgb(20,30,60,0.13); border-color: transparent; border-width: 3px; border-style: solid; font-family: Pangea; font-weight: 400; font-style: normal; color: #475160; text-align: center; text-decoration: none; padding: 8px 42px; font-size: 1em; cursor: pointer; min-width: 89px; border-radius: 5px; display: inline-block; margin: 0 auto; }
+			form#nuevoCumuloForm > p.agregarDescartar > span > a.descartarBoton:hover { color: #38404C; background-color: rgb(20,30,60,0.26); }
+
+			form#cumuloEdicionForm > p.cumuloEdicionP { margin: 0 auto; padding: 0; }
+			form#cumuloEdicionForm > p.cumuloEdicionFormLabel { margin: 34px auto 8px auto; }
+			form#cumuloEdicionForm > p.editarDescartar { display: flex; margin: 0 auto 55px auto; line-height: 1.24em; font-size: 1em; font-style: normal; }
+			form#cumuloEdicionForm > p.editarDescartar > span.gridCajaIzq { width: 50%; text-align: right; padding: 0 5px 0 0; }
+			form#cumuloEdicionForm > p.editarDescartar > span.gridCajaDer { width: 50%; text-align: left; padding: 0 0 0 5px; }
+			form#cumuloEdicionForm > p.editarDescartar > span > a.descartarBoton { background-color: rgb(20,30,60,0.13); border-color: transparent; border-width: 3px; border-style: solid; font-family: Pangea; font-weight: 400; font-style: normal; color: #475160; text-align: center; text-decoration: none; padding: 8px 42px; font-size: 1em; cursor: pointer; min-width: 89px; border-radius: 5px; display: inline-block; margin: 0 auto; }
+			form#cumuloEdicionForm > p.editarDescartar > span > a.descartarBoton:hover { color: #38404C; background-color: rgb(20,30,60,0.26); }
+
+			form#nuevaEspecificacionForm > p.nuevaEspecificacionP { margin: 0 auto; padding: 0; }
+			form#nuevaEspecificacionForm > p.nuevaEspecificacionFormLabel { margin: 34px auto 8px auto; }
+			form#nuevaEspecificacionForm > p.agregarDescartar { display: flex; margin: 0 auto 55px auto; line-height: 1.24em; font-size: 1em; font-style: normal; }
+			form#nuevaEspecificacionForm > p.agregarDescartar > span.flexCajaIzq { width: 50%; text-align: right; padding: 0 5px 0 0; }
+			form#nuevaEspecificacionForm > p.agregarDescartar > span.flexCajaDer { width: 50%; text-align: left; padding: 0 0 0 5px; }
+
+			form#especificacionEdicionForm > p.especificacionEdicionP { margin: 0 auto; padding: 0; }
+			form#especificacionEdicionForm > p.especificacionEdicionFormLabel { margin: 34px auto 8px auto; }
+			form#especificacionEdicionForm > p.especificacionEdicionP > a { -webkit-hyphens: none; hyphens: none; white-space: nowrap; text-overflow: ellipsis; overflow: hidden; padding: 0; font-size: 1em; display: block; width: calc(100% - 42px); margin: 0 auto; font-family: Pangea; font-weight: 400; font-style: normal; color: #475160; text-align: center; text-decoration: none; }
+			form#especificacionEdicionForm > p.editarDescartar { display: flex; margin: 0 auto 55px auto; line-height: 1.24em; font-size: 1em; font-style: normal; }
+			form#especificacionEdicionForm > p.editarDescartar > span.flexCajaIzq { width: 50%; text-align: right; padding: 0 5px 0 0; }
+			form#especificacionEdicionForm > p.editarDescartar > span.flexCajaDer { width: 50%; text-align: left; padding: 0 0 0 5px; }
+
+			p.borradoConfirmacionP { margin: 0 auto; line-height: 1.38em; font-style: normal; font-weight: 300; }
+			p.borradoConfirmacionPTitulo { font-size: 1.62em; font-weight: 600; }
+			h2.borradoConfirmacionH2 { font-weight: 300; }
+			h2.borradoConfirmacionH2 > strong { font-weight: 600; }
+			p.especificacionContenido { margin: 8px auto 0 auto; font-size: 1.24em; }
+			p.cumuloEtiquetas { margin-top: 5px; }
+			p.cumuloEtiquetas > a { display: inline-block; max-width: 422px; padding: 5px 13px; margin: 5px; background-color: rgb(20,30,60,0.21); border-color: transparent; border-radius: 5px; border-width: 3px; border-style: solid; color: #B5BBC6; text-decoration: none; }
+			p.cumuloEtiquetas > a:hover { text-decoration: none; background-color: rgb(20,30,60,0.42); color: #C0C5CF; }
+			p.especificacionContenidoCantidadFecha { margin: 0 auto; font-size: 2.24em; }
+			p.especificacionContenidoArchivo > a { -webkit-hyphens: none; hyphens: none; white-space: nowrap; text-overflow: ellipsis; overflow: hidden; padding: 0; font-size: 0.87em; display: block; width: calc(100% - 42px); margin: 0 auto; font-family: Pangea; font-weight: 400; font-style: normal; color: #475160; text-align: center; text-decoration: none; }
+			h4.borradoConfirmacionH4Titulo { letter-spacing: 0; margin: 34px auto 0 auto; padding: 0; line-height: 1.38em; font-size: 0.87em; font-style: normal; font-weight: 400; }
+			form#borradoConfirmacionForm > p.borrarCancelar { display: flex; margin: 0 auto 55px auto; line-height: 1.24em; font-size: 1em; font-style: normal; }
+			form#borradoConfirmacionForm > p.borrarCancelar > span.flexCajaIzq { width: 50%; text-align: right; padding: 0 5px 0 0; }
+			form#borradoConfirmacionForm > p.borrarCancelar > span.flexCajaDer { width: 50%; text-align: left; padding: 0 0 0 5px; }
+
+			p.especificacion { margin: 0 auto 21px auto; line-height: 1.38em; font-size: 1em; font-style: normal; font-weight: 300; }
+			p.especificacionCantidad { font-size: 2.24em; font-weight: 300; }
+			p.especificacionFecha { font-size: 1.62em; font-weight: 300; }
+			p.especificacionDoc > a { -webkit-hyphens: none; hyphens: none; display: block; white-space: nowrap; width: auto; text-overflow: ellipsis; overflow: hidden; font-size: 1em; background-color: rgb(20,30,60,0.13); color: #475160; font-weight: 300; text-decoration: none; padding: 8px 42px; margin: 0 auto; border-color: transparent; border-width: 3px; border-radius: 5px; border-style: solid; }
+			p.especificacionImg > img { width: 100%; margin: 0 auto; border-radius: 8px; border: 5px solid rgb(20,30,60,0.21); }
+			p.especificacionEdicion { display: flex; margin: 0 auto 55px auto; font-size: 0.68em; }
+			p.especificacionEdicion > span.flexCajaIzq { width: 50%; text-align: right; }
+			p.especificacionEdicion > span.flexCajaDer { width: 50%; text-align: left; }
+			p.especificacionEdicion > span.flexCajaIzq > a { padding: 3px 13px 3px 34px; }
+			p.especificacionEdicion > span.flexCajaDer > a { padding: 3px 34px 3px 13px; }
+			p.especificacionEdicion > span > a { display: inline-block; margin: 0 auto; border-top: 1px solid rgb(20,30,60,0.21); color: rgb(20,30,60,0.34); font-family: Pangea; font-weight: 500; font-style: normal; text-align: center; text-decoration: none; text-transform: uppercase; cursor: pointer; display: inline-block; margin: 0 auto; } /*  color: #475160; background-color: rgb(20,30,60,0.13); border-color: transparent; border-style: solid; border-width: 0; border-radius: 5px; */
+			p.especificacionEdicion > span > a:hover { color: #38404C; border-top: 1px solid rgb(20,30,60,0.55); } /* background-color: rgb(20,30,60,0.26); */
+
+			p.etiquetas { margin-top: 13px; }
+			p.etiquetas > a { display: inline-block; max-width: 422px; padding: 5px 13px; margin: 5px; background-color: rgb(20,30,60,0.21); border-color: transparent; border-radius: 5px; border-width: 3px; border-style: solid; color: #B5BBC6; text-decoration: none; }
+			p.etiquetas > a:hover { text-decoration: none; background-color: rgb(20,30,60,0.42); color: #C0C5CF; }
+
+			ul.busqResltUl { margin: 0 auto 55px auto; line-height: 1.38em; font-size: 1em; font-style: normal; font-weight: 300; }
+			ul.busqResltUl > li > a { color: #6B7787; font-size: 1.38em; font-family: pangea; background-color: rgb(20,30,60,0.13); border-radius: 8px; border-width: 3px; border-color: transparent; border-style: solid; display: block; text-decoration: none; max-width: 422px; padding: 21px; margin: 13px auto; }
+			ul.busqResltUl > li > a:hover { color: #38404C; background-color: rgb(20,30,60,0.26); font-weight: 500; }
+
+			p.pMenu { position: relative; display: inline-block; width: 392px; margin: 0 auto 55px auto; padding: 13px; text-transform: uppercase; font-size: 0.76em; background-color:  rgb(20,30,60,0.13); border-color: transparent; border-radius: 5px; border-width: 3px; border-style: solid; color: #475160; }
+			p.pMenu > strong { font-weight: 500; margin: 0 auto; }
+			p.pMenu > span.pMenuItems { display: none; position: absolute; top: calc(-100% - 26px); left: 50%; transform: translateX(-50%); z-index: 1; margin: 0; padding: 13px; background-color: #9CA3AF; border-color: transparent; border-radius: 5px; border-width: 3px; border-style: solid; width: 398px; }
+			p.pMenu:hover > span.pMenuItems { display: block; }
+			p.pMenu > span.pMenuItems > a { display: block; text-transform: uppercase; color: #576476; text-decoration: none; font-weight: 500; padding: 5px; }
+			p.pMenu > span.pMenuItems > a:hover { font-weight: 600; color: #475160; }
+
+			a.descartarBoton { background-color: rgb(20,30,60,0.13); border-color: transparent; border-width: 3px; border-style: solid; font-family: Pangea; font-weight: 400; font-style: normal; color: #475160; text-align: center; text-decoration: none; padding: 8px 42px; font-size: 1em; cursor: pointer; min-width: 89px; border-radius: 5px; display: inline-block; margin: 0 auto; }
+			a.descartarBoton:hover { color: #38404C; background-color: rgb(20,30,60,0.26); }
+
+			input.faltaCampo, textarea.faltaCampo { border-color: red; transition: border-color 0.6s; }	
+			label.faltaCampo { color: red; transition: color 0.6s; }

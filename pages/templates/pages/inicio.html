@@ -1,0 +1,10 @@
+{% extends 'pages/plantillauno.html' %}
+{% block titulo %}Inicio{% endblock %}
+{% block contenido %}
+		<h2>Búsqueda</h2>
+		<form id="porEtiquetaBusquedaForm" action="" method="post">
+			<p><input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}" /></p>
+			<p class="porEtiquetaBusquedaFormLabel"><label for="porEtiquetaBusqueda">Ingrese etiqueta(s) a buscar, separadas por comas.</label></p>
+			<p><input type="text" id="porEtiquetaBusqueda" name="porEtiquetaBusqueda" /></p>
+			<p class="porEtiquetaBusquedaFormBuscar"><button type="submit">Buscar</button></p>
+		</form>{% endblock %}

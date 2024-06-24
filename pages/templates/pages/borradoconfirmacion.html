@@ -1,0 +1,19 @@
+{% extends 'pages/plantillauno.html' %}
+{% block titulo %}Confirmar borrado{% endblock %}
+{% block contenido %}
+		<h2 class="borradoConfirmacionH2">Confirme el borrado {% if modelTipoFila == 'Entry' %}del<br/><strong>cúmulo{% else %}de<br/>la <strong>especificación{% endif %}</strong></h2>
+		<hr class="sepMargSupB" />
+		{% if rowHasTitle %}<h4 class="borradoConfirmacionH4Titulo">Título</h4>
+		<p class="borradoConfirmacionPTitulo">{{ titulo }}</p>{% endif %}
+		<h4 class="borradoConfirmacionH4Titulo">{% if modelTipoFila == 'Entry' %}Etiquetas{% elif modelTipoFila == 'texto' %}Texto{% elif modelTipoFila == 'cantidad' %}Número{% elif modelTipoFila == 'fecha' %}Fecha{% elif modelTipoFila == 'imagen' %}Imagen{% elif modelTipoFila == 'documento' %}Documento{% endif %}</h4>
+		{% if modelTipoFila == 'Entry' %}<p class="borradoConfirmacionP cumuloEtiquetas">
+			<span class="invisibleSpan">Etiquetas: </span>{% for tag in etiquetas %}<a href="{% url 'busquedaresultados' tag=tag %}">{{ tag }}</a>{% if not forloop.last %}<span class="invisibleSpan"> | </span>{% endif %}{% endfor %}
+		</p>{% else %}<p class="borradoConfirmacionP especificacionContenido{% if modelTipoFila == 'cantidad' or modelTipoFila == 'fecha' %} especificacionContenidoCantidadFecha{% elif modelTipoFila == 'imagen' or modelTipoFila == 'documento' %} especificacionContenidoArchivo{% endif %}">{% if modelTipoFila == 'texto' or modelTipoFila == 'cantidad' or modelTipoFila == 'fecha' %}{{ especificacionContenido }}{% else %}<a href="{{ especificacionContenido.url }}"><em><strong>{% if modelTipoFila == 'imagen' %}{{ especificacionContenido.name|cut:'images/' }}{% elif modelTipoFila == 'documento' %}{{ especificacionContenido.name|cut:'files/' }}{% endif %}</strong></em></a>{% endif %}</p>{% endif %}
+		<hr class="sepMargSup" />
+		<form id="borradoConfirmacionForm" action="{% if modelTipoFila == 'Entry' %}{% url 'cumuloeliminacion' entry_id=entry_id %}{% else %}{% url 'especificacioneliminacion' entry_id=entry_id element_kind=modelTipoFila element_id=element_id %}{% endif %}" method="post">
+			<p><input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}" /></p>
+			<p class="borrarCancelar">
+				<span class="flexCajaIzq"><button type="submit"><strong>Borrar</strong></button></span><span class="invisibleSpan"> | </span><span class="flexCajaDer"><a href="{% url 'cumulo' entry_id=entry_id %}" class="descartarBoton">Cancelar</a></span>
+			</p>
+		</form>
+		<hr class="sepFino" />{% endblock %}

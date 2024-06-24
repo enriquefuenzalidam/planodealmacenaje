@@ -1,0 +1,29 @@
+{% extends 'pages/plantillauno.html' %}
+{% block titulo %}Editando especificación de {% if element_kind == 'texto' %}texto{% elif element_kind == 'cantidad' %}cantidad{% elif element_kind == 'fecha' %}fecha{% elif element_kind == 'imagen' %}imagen{% else %}documento{% endif %} para el cúmulo título {{ entrada_titulo }}{% endblock %}
+{% block contenido %}
+		<h2 class="cumulo">{{ entry.title }}</h2>
+		<h3>Editando especificación de tipo <strong>{% if element_kind == 'texto' %}texto{% elif element_kind == 'cantidad' %}cantidad{% elif element_kind == 'fecha' %}fecha{% elif element_kind == 'imagen' %}imagen{% else %}documento{% endif %}</strong></h3>
+		<form id="especificacionEdicionForm" action="" method="post" enctype="multipart/form-data">
+			<p><input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}" /></p>
+			<p class="especificacionEdicionFormLabel"><label {% if faltaCampoUno %}class="faltaCampo"{% endif %} for="especificacionEdicionTitulo" >Título {% if element_kind == 'texto' %}del texto (opcional){% elif element_kind == 'cantidad' %}de la cantidad (obligatorio){% elif element_kind == 'fecha' %}de la fecha (obligatorio){% elif element_kind == 'imagen' %}de la imagen (opcional){% else %}del documento (opcional){% endif %}</label></p>
+			<p class="especificacionEdicionP"><input {% if faltaCampoUno %}class="faltaCampo"{% endif %} type="text" id="especificacionEdicionTitulo" name="especificacionEdicionTitulo" {% if faltaCampoUno or faltaCampoDos %}value="{{ data.especificacionEdicionTitulo|default_if_none:'' }}"{% else %}value="{{ element_title|default_if_none:'' }}"{% endif %} /></p>
+			{% if element_kind == 'texto' %}<p class="especificacionEdicionFormLabel"><label {% if faltaCampoDos %}class="faltaCampo"{% endif %} for="especificacionEdicionContent" >Texto (obligatorio)</label></p>
+			<p class="especificacionEdicionP"><textarea {% if faltaCampoDos %}class="faltaCampo"{% endif %} id="especificacionEdicionContent" name="especificacionEdicionContent" rows="5" cols="50" > {% if faltaCampoUno or faltaCampoDos %}{{ data.especificacionEdicionContent|default_if_none:'' }}{% else %}{{ element_content|default_if_none:'' }}{% endif %}</textarea></p>
+			{% elif element_kind == 'cantidad' %}<p class="especificacionEdicionFormLabel"><label {% if faltaCampoDos %}class="faltaCampo"{% endif %} for="especificacionEdicionNumber" >Cantidad (obligatorio){% if noNumeroCampoDos %} (ingrese solo números){% endif %}</label></p>
+			<p class="especificacionEdicionP"><input {% if faltaCampoDos %}class="faltaCampo"{% endif %} type="text" id="especificacionEdicionNumber" name="especificacionEdicionNumber" {% if faltaCampoUno or faltaCampoDos %}value="{{ data.especificacionEdicionNumber|default_if_none:'' }}"{% else %}value="{{ element_content|default_if_none:'' }}"{% endif %} /></p>
+			{% elif element_kind == 'fecha' %}<p class="especificacionEdicionFormLabel"><label {% if faltaCampoDos %}class="faltaCampo"{% endif %} for="especificacionEdicionDate" >Fecha (obligatorio)</label></p>
+			<p class="especificacionEdicionP"><input {% if faltaCampoDos %}class="faltaCampo"{% endif %} type="date" id="especificacionEdicionDate" name="especificacionEdicionDate" {% if faltaCampoUno or faltaCampoDos %}value="{{ data.especificacionEdicionDate|default_if_none:'' }}"{% else %}value="{{ element_content|default_if_none:'' }}"{% endif %} /></p>
+			{% elif element_kind == 'imagen' %}<p class="especificacionEdicionFormLabel"><label for="especificacionEdicionFile" >Imagen actual</label></p>
+			<p class="especificacionEdicionP"><a href="{{ element.image.url }}"><em><strong>{{ element_content.name|cut:'images/' }}</strong></em></a></p>
+			<p class="especificacionEdicionFormLabel"><label {% if faltaCampoDos %}class="faltaCampo"{% endif %} for="especificacionEdicionImage" >Reemplazar imagen</label></p>
+			<p class="especificacionEdicionP"><input {% if faltaCampoDos %}class="faltaCampo"{% endif %} type="file" id="especificacionEdicionImage" name="especificacionEdicionImage" accept="image/*" value="" /></p>
+			{% else %}<p class="especificacionEdicionFormLabel"><label for="especificacionEdicionFile" >Documento actual</label></p>
+			<p class="especificacionEdicionP"><a href="{{ element.file.url }}"><em><strong>{{ element_content.name|cut:'files/' }}</strong></em></a></p>
+			<p class="especificacionEdicionFormLabel"><label {% if faltaCampoDos %}class="faltaCampo"{% endif %} for="especificacionEdicionFile" >Reemplazar documento</label></p>
+			<p class="especificacionEdicionP"><input {% if faltaCampoDos %}class="faltaCampo"{% endif %} type="file" id="especificacionEdicionFile" name="especificacionEdicionFile" accept=".doc, .docx, .pdf" value="" /></p>
+			{% endif %}<hr class="sepMargSup"/>
+			<p class="editarDescartar">
+				<span class="flexCajaIzq"><button type="submit"><strong>Editar</strong></button></span><span class="invisibleSpan"> | </span><span class="flexCajaDer"><a href="{% url 'cumulo' entry_id=entry_id %}" class="descartarBoton">Descartar</a></span>
+			</p>
+		 </form>
+		<hr class="sepFino"/>{% endblock %}
